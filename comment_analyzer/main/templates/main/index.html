@@ -1,0 +1,21 @@
+{% extends 'main/layout.html' %}
+
+{% block title %}
+{{ title }}
+{% endblock %}
+
+{% block content %}
+<div class="features">
+    <h1>{{ title }}</h1>
+    <p>This site uses the collected data for the project youtube_comment_analyzer</p>
+    <p>Full db size is about 5Gb, so we use small example base instead</p>
+    <p>In the "Channels" section you can view statistical graphs for the channels being studied based on previously collected data. </p>
+    <p>Scripts for collecting data from YouTube channels, writing the received data to the database, the script operation scheme and the ERD-scheme of the database are in the "Additionally" folder  </p>
+    <p>Please note: the "Channels" page is cached for 30 minutes. In the training format, all charts are generated when navigating to the "Channels" page, except for the WorldCloud images. </p>
+    <p>At this stage, we are considering the following channels:</p>
+    {% for el in values %}
+        <p>{{ el }}</p>
+    {% endfor %}
+    <a href="{% url 'about' %}"><button class="btn btn-primary">About us</button></a>
+</div>
+{% endblock %}

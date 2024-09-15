@@ -1,0 +1,19 @@
+{% extends 'main/layout.html' %}
+
+{% block title %}Редактирование{% endblock %}
+
+{% block content %}
+{% if form.user.value == request.user.id or request.user.is_staff %}
+    <div class="features">
+        <form class="form-add" method="post" enctype="multipart/form-data">
+            {% csrf_token %}<br>
+             {{ form.as_p }}<br>
+            <p>{{ form.user }}</p>
+            <span>{{ error }}</span>
+            <button type="submit" class="btn btn-success">Редактировать канал</button>
+        </form>
+    </div>
+{%else %}
+    <h3 style="color: white;">НЕТ ДОСТУПА</h3>
+{% endif %}
+{% endblock %}

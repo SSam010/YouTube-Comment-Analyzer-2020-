@@ -1,0 +1,11 @@
+version: '3.9'
+services:
+  youtube_comment_analyzer:
+    build: .
+    container_name: youtube_comment_analyzer
+    command: python3 manage.py runserver 0.0.0.0:8000
+    ports:
+      - "8000:8000"
+    volumes:
+      - .:/usr/src/youtube_comment_analyzer
+
